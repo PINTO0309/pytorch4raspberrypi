@@ -159,7 +159,8 @@ or
 # git clone -b ${TORCHAUDIO} https://github.com/pytorch/audio.git
 # cd audio \
     && git submodule update --init --recursive \
-    && apt-get install -y sox libsox-dev ninja \
+    && apt-get install -y sox libsox-dev \
+    && pip3 install ninja \
     && python3 setup.py build \
     && python3 setup.py bdist_wheel
 
