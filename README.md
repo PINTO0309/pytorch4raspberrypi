@@ -1,5 +1,5 @@
 # pytorch4raspberrypi
-Cross-compilation of PyTorch armv7l for RaspberryPi OS
+Cross-compilation of PyTorch armv7l (32bit) for RaspberryPi OS
 
 **WIP**
 
