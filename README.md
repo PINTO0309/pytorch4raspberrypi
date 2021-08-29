@@ -177,6 +177,8 @@ $ sudo apt install -y libatlas-base-dev libpng-dev nano \
   libopenblas-dev libblas-dev m4 cmake cython python3-dev python3-yaml
 
 $ sudo pip3 install numpy==1.19.5
+or
+$ sudo pip3 install numpy==1.21.2
 
 $ sudo pip3 install torch-*_armv7l_.whl torchvision-*_armv7l.whl torchaudio-*_armv7l.whl
 ```
