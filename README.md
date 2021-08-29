@@ -1,7 +1,7 @@
 # pytorch4raspberrypi
 Cross-compilation of PyTorch armv7l (32bit) for RaspberryPi OS
 
-**WIP**
+**[Cross-compilation of PyTorch v1.9.0 armv7l for RaspberryPi OS Buster](https://zenn.dev/pinto0309/articles/b796e2d6396c1e)**
 
 ## 1. Environment
 - Ubuntu 20.04 x86_64
