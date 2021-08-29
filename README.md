@@ -175,6 +175,8 @@ Running on RaspberryPi.
 $ sudo apt install -y libatlas-base-dev libpng-dev nano \
   curl zip unzip libtool swig zlib1g-dev pkg-config git wget xz-utils \
   libopenblas-dev libblas-dev m4 cmake cython python3-dev python3-yaml
+$ sudo pip3 install numpy==1.19.5
+
 $ sudo pip3 install torch-1.9.0a0+gitd69c22d-cp37-cp37m-linux_armv7l_.whl
 $ sudo pip3 install torchvision-0.10.0a0+300a8a4-cp37-cp37m-linux_armv7l.whl
 $ sudo pip3 install torchaudio-0.9.0a0+33b2469-cp37-cp37m-linux_armv7l.whl
