@@ -168,3 +168,11 @@ or
 
 # exit
 ```
+# 3. Install
+Running on RaspberryPi.
+```
+$ sudo apt install -y libatlas-base-dev
+$ sudo pip3 install torch-1.9.0a0+gitd69c22d-cp37-cp37m-linux_armv7l_.whl
+$ sudo pip3 install 
+$ sudo pip3 install 
+```
