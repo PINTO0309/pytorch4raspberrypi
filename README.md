@@ -48,7 +48,9 @@ or
     && git submodule update --init --recursive \
     && pip3 install -r requirements.txt \
     && python3 setup.py build \
-    && python3 setup.py bdist_wheel
+    && mv build/lib.linux-armv7l-3.7/torch/_C.cpython-37m-arm-linux-gnueabihf.so build/lib.linux-armv7l-3.7/torch/_C.so \
+    && mv build/lib.linux-armv7l-3.7/torch/_dl.cpython-37m-arm-linux-gnueabihf.so build/lib.linux-armv7l-3.7/torch/_dl.so
+# python3 setup.py bdist_wheel
 
 -- ******** Summary ********
 -- General:
