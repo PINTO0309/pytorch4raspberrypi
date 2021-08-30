@@ -20,6 +20,8 @@ $ docker run --rm -it -v ${PWD}:/work pytorch4raspberrypi /bin/bash
 
 # cp /wheels/* work
 # exit
+
+$ sudo chmod -R 777 *.whl 
 ```
 ## 2-2. [Method 2] Manual build
 ```
