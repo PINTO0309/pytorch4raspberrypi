@@ -67,5 +67,5 @@ RUN git clone -b ${TORCHAUDIOVER} https://github.com/pytorch/audio.git \
     && cd .. \
     && rm -rf /audio
 
-RUN # Cleaning
-    chmod 775 -R /wheels/*.whl
+# Cleaning
+RUN chmod 775 -R /wheels/*.whl
