@@ -26,7 +26,7 @@ RUN apt update --allow-releaseinfo-change \
 RUN pip3 install pip --upgrade \
     && pip3 install numpy==${NUMPYVER} \
     && pip3 install cmake==3.21.2 \
-    && pip3 install -U six wheel mock \
+    && pip3 install -U six wheel mock ninja \
     && ldconfig \
     && pip cache purge
 
@@ -61,7 +61,6 @@ RUN # TorchAudio
     git clone -b ${TORCHAUDIOVER} https://github.com/pytorch/audio.git \
     && cd audio \
     && git submodule update --init --recursive \
-    && pip3 install ninja \
     && python3 setup.py build \
     && python3 setup.py bdist_wheel \
     && cp dist/* /wheels \
