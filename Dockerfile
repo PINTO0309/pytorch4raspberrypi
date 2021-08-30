@@ -19,7 +19,7 @@ RUN apt update --allow-releaseinfo-change \
         curl zip unzip libtool swig zlib1g-dev pkg-config git wget xz-utils \
         libopenblas-dev libblas-dev m4 cmake cython python3-dev python3-yaml \
         python3-setuptools python3-pip python3-mock \
-        libpython3-dev libpython3-all-dev g++ gcc \
+        libpython3-dev libpython3-all-dev g++ gcc libatlas-base-dev \
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
 
