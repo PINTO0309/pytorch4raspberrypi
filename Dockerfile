@@ -30,8 +30,8 @@ RUN pip3 install pip --upgrade \
     && ldconfig \
     && pip cache purge
 
+# PyTorch
 RUN mkdir -p /wheels \
-    # PyTorch
     && git clone -b ${TORCHVER} https://github.com/pytorch/pytorch.git \
     && cd pytorch \
     && git submodule update --init --recursive \
@@ -46,8 +46,8 @@ RUN mkdir -p /wheels \
     && cd .. \
     && rm -rf /pytorch
 
-RUN # TorchVision
-    git clone -b ${TORCHVISIONVER} https://github.com/pytorch/vision.git \
+# TorchVision
+RUN git clone -b ${TORCHVISIONVER} https://github.com/pytorch/vision.git \
     && cd vision \
     && git submodule update --init --recursive \
     && pip3 install /pytorch/dist/*.whl \
@@ -57,8 +57,8 @@ RUN # TorchVision
     && cd .. \
     && rm -rf /vision
 
-RUN # TorchAudio
-    git clone -b ${TORCHAUDIOVER} https://github.com/pytorch/audio.git \
+# TorchAudio
+RUN git clone -b ${TORCHAUDIOVER} https://github.com/pytorch/audio.git \
     && cd audio \
     && git submodule update --init --recursive \
     && python3 setup.py build \
