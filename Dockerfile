@@ -11,7 +11,7 @@ ARG TORCHVER=v1.9.0
 ARG TORCHVISIONVER=v0.10.0
 ARG TORCHAUDIOVER=v0.9.0
 # 1.19.5 or 1.21.2
-ARG NUMPYVER=1.19.5
+ARG NUMPYVER=1.21.2
 
 RUN apt update --allow-releaseinfo-change \
     && apt upgrade -y \
