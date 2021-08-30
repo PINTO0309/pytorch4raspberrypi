@@ -63,9 +63,8 @@ RUN mkdir -p /wheels \
     && python3 setup.py build \
     && python3 setup.py bdist_wheel \
     && cp dist/* /wheels \
-    && cd ..
-
-RUN rm -rf /pytorch \
+    && cd .. \
+    && rm -rf /pytorch \
     && rm -rf /vision \
     && rm -rf /audio \
     && apt clean \
