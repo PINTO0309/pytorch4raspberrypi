@@ -18,7 +18,7 @@ RUN apt update --allow-releaseinfo-change \
         automake autoconf libpng-dev nano \
         curl zip unzip libtool swig zlib1g-dev pkg-config git wget xz-utils \
         libopenblas-dev libblas-dev m4 cmake cython python3-dev python3-yaml \
-        python3-setuptools python3-pip python3-mock \
+        python3-setuptools python3-pip python3-mock sox libsox-dev \
         libpython3-dev libpython3-all-dev g++ gcc libatlas-base-dev \
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
@@ -44,8 +44,10 @@ RUN mkdir -p /wheels \
     && python3 setup.py bdist_wheel \
     && cp dist/* /wheels \
     && cd .. \
-    # TorchVision
-    && git clone -b ${TORCHVISIONVER} https://github.com/pytorch/vision.git \
+    && rm -rf /pytorch
+
+RUN # TorchVision
+    git clone -b ${TORCHVISIONVER} https://github.com/pytorch/vision.git \
     && cd vision \
     && git submodule update --init --recursive \
     && pip3 install /pytorch/dist/*.whl \
@@ -53,20 +55,18 @@ RUN mkdir -p /wheels \
     && python3 setup.py bdist_wheel \
     && cp dist/* /wheels \
     && cd .. \
-    # TorchAudio
-    && git clone -b ${TORCHAUDIOVER} https://github.com/pytorch/audio.git \
+    && rm -rf /vision
+
+RUN # TorchAudio
+    git clone -b ${TORCHAUDIOVER} https://github.com/pytorch/audio.git \
     && cd audio \
     && git submodule update --init --recursive \
-    && apt-get install -y sox libsox-dev \
     && pip3 install ninja \
     && python3 setup.py build \
     && python3 setup.py bdist_wheel \
     && cp dist/* /wheels \
     && cd .. \
-    # Cleaning
-    && chmod 775 -R /wheels/*.whl \
-    && rm -rf /pytorch \
-    && rm -rf /vision \
-    && rm -rf /audio \
-    && apt clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /audio
+
+RUN # Cleaning
+    chmod 775 -R /wheels/*.whl
