@@ -50,7 +50,7 @@ RUN mkdir -p /wheels \
 RUN git clone -b ${TORCHVISIONVER} https://github.com/pytorch/vision.git \
     && cd vision \
     && git submodule update --init --recursive \
-    && pip3 install /pytorch/dist/*.whl \
+    && pip3 install /wheels/*.whl \
     && python3 setup.py build \
     && python3 setup.py bdist_wheel \
     && cp dist/* /wheels \
