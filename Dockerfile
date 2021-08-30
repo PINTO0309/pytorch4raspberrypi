@@ -1,4 +1,3 @@
-
 FROM pinto0309/raspios_lite_armhf:2021-03-04_buster
 
 ENV DEBIAN_FRONTEND=noninteractive
