@@ -16,15 +16,18 @@ ARG NUMPYVER=1.21.2
 RUN apt update --allow-releaseinfo-change \
     && apt upgrade -y \
     && apt install -y \
-        openjdk-11-jdk automake autoconf libpng-dev nano \
+        automake autoconf libpng-dev nano \
         curl zip unzip libtool swig zlib1g-dev pkg-config git wget xz-utils \
         libopenblas-dev libblas-dev m4 cmake cython python3-dev python3-yaml \
         python3-setuptools python3-pip python3-mock \
-        libpython3-dev libpython3-all-dev g++ gcc
+        libpython3-dev libpython3-all-dev g++ gcc \
+    && apt clean \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install numpy==${NUMPYVER} \
     && pip3 install -U six wheel mock \
-    && ldconfig
+    && ldconfig \
+    && pip cache purge
 
 RUN mkdir -p /wheels \
     # PyTorch
@@ -64,5 +67,4 @@ RUN rm -rf /pytorch \
     && rm -rf /vision \
     && rm -rf /audio \
     && apt clean \
-    && rm -rf /var/lib/apt/lists/* \
-    && pip cache purge
+    && rm -rf /var/lib/apt/lists/*
