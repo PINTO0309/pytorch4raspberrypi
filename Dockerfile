@@ -63,6 +63,7 @@ RUN mkdir -p /wheels \
     && python3 setup.py bdist_wheel \
     && cp dist/* /wheels \
     && cd .. \
+    # Cleaning
     && chmod 775 -R /wheels/*.whl \
     && rm -rf /pytorch \
     && rm -rf /vision \
