@@ -12,7 +12,7 @@ A very time-consuming but very easy cross-compilation procedure. Performed on Ub
 ## 2-1. [Method 1] Docker build
 ```
 $ docker run --rm --privileged multiarch/qemu-user-static --reset -p yes \
-  && docker build pytorch4raspberrypi .
+  && docker build -t pytorch4raspberrypi .
 
 ##### A pre-built .whl file will be generated directly under the /wheels folder.
 
