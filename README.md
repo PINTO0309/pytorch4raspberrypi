@@ -8,7 +8,7 @@ Cross-compilation of PyTorch armv7l (32bit) for RaspberryPi OS
 - Docker
 
 ## 2. Procedure
-A very time-consuming but very easy cross-compilation procedure. Performed on Ubuntu 20.04 x86_64.
+A very time-consuming but very easy cross-compilation procedure. It will take about three hours. Performed on Ubuntu 20.04 x86_64.
 ## 2-1. [Method 1] Docker build
 ```
 $ docker run --rm --privileged multiarch/qemu-user-static --reset -p yes \
