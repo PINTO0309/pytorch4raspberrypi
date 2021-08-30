@@ -31,9 +31,8 @@ RUN pip3 install pip --upgrade \
     && ldconfig \
     && pip cache purge
 
-RUN mkdir -p /wheels \
-    # PyTorch
-    && git clone -b ${TORCHVER} https://github.com/pytorch/pytorch.git \
+RUN # PyTorch
+    git clone -b ${TORCHVER} https://github.com/pytorch/pytorch.git \
     && cd pytorch \
     && git submodule update --init --recursive \
     && pip3 install -r requirements.txt \
@@ -43,7 +42,7 @@ RUN mkdir -p /wheels \
     && ln -s _dl.cpython-37m-arm-linux-gnueabihf.so _dl.so \
     && cd ../../.. \
     && python3 setup.py bdist_wheel \
-    && cp dist/* /wheels \
+    && cp dist/* /work \
     && cd .. \
     # TorchVision
     && git clone -b ${TORCHVISIONVER} https://github.com/pytorch/vision.git \
@@ -52,7 +51,7 @@ RUN mkdir -p /wheels \
     && pip3 install /pytorch/dist/*.whl \
     && python3 setup.py build \
     && python3 setup.py bdist_wheel \
-    && cp dist/* /wheels \
+    && cp dist/* /work \
     && cd .. \
     # TorchAudio
     && git clone -b ${TORCHAUDIOVER} https://github.com/pytorch/audio.git \
@@ -62,8 +61,9 @@ RUN mkdir -p /wheels \
     && pip3 install ninja \
     && python3 setup.py build \
     && python3 setup.py bdist_wheel \
-    && cp dist/* /wheels \
+    && cp dist/* /work \
     && cd .. \
+    && chmod 775 -R /work/*.whl \
     && rm -rf /pytorch \
     && rm -rf /vision \
     && rm -rf /audio \
