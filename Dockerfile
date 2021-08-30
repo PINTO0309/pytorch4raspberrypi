@@ -27,7 +27,7 @@ RUN apt update --allow-releaseinfo-change \
 RUN pip3 install numpy==${NUMPYVER} \
     && pip3 install -U six wheel mock \
     && ldconfig \
-    && pip cache purge
+    && pip3 cache purge
 
 RUN mkdir -p /wheels \
     # PyTorch
