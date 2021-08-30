@@ -9,6 +9,18 @@ Cross-compilation of PyTorch armv7l (32bit) for RaspberryPi OS
 
 ## 2. Procedure
 A very time-consuming but very easy cross-compilation procedure. Performed on Ubuntu 20.04 x86_64.
+## 2-1. [Method 1] Docker build
+```
+$ docker run --rm --privileged multiarch/qemu-user-static --reset -p yes \
+  && docker build pytorch4raspberrypi .
+
+##### A pre-built .whl file will be generated directly under the /wheels folder.
+
+$ docker run --rm -it -v ${PWD}:/work pytorch4raspberrypi /bin/bash
+# cp /wheels/* work
+# exit
+```
+## 2-2. [Method 2] Manual build
 ```
 $ docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 $ docker run --rm -it \
