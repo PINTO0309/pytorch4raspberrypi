@@ -26,6 +26,7 @@ RUN apt update --allow-releaseinfo-change \
 
 RUN pip3 install pip --upgrade \
     && pip3 install numpy==${NUMPYVER} \
+    && pip3 install cmake==3.21.2 \
     && pip3 install -U six wheel mock \
     && ldconfig \
     && pip cache purge
