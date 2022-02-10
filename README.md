@@ -54,6 +54,14 @@ All of the following operations were performed on a RaspberryPi OS armv7l 32-bit
 
 # git clone -b ${TORCH} https://github.com/pytorch/pytorch.git
 
+##########################################################
+pytorch/torch/csrc/utils/python_arg_parser.h:415:94
+pytorch/torch/csrc/utils/python_arg_parser.h:442:94
+pytorch/torch/csrc/autograd/python_function.cpp:439:11
+
+%ld -> %d
+##########################################################
+
 # cd pytorch \
     && git submodule update --init --recursive \
     && pip3 install -r requirements.txt \
@@ -164,15 +172,6 @@ All of the following operations were performed on a RaspberryPi OS armv7l 32-bit
 # cd ..
 
 # git clone -b ${TORCHVISION} https://github.com/pytorch/vision.git
-
-##########################################################
-/pytorch/torch/csrc/utils/python_arg_parser.h:415:94
-/pytorch/torch/csrc/utils/python_arg_parser.h:442:94
-/pytorch/torch/csrc/autograd/python_function.cpp:439:11
-
-%ld -> %d
-##########################################################
-
 
 # cd vision \
     && git submodule update --init --recursive \
